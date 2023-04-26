@@ -5,5 +5,5 @@ jobs:
   foo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ true && one || two }}"
-      - run: echo "${{ false && one || two }}"
+      - run: echo "${{ true && 'one' || 'two' }}"
+      - run: echo "${{ false && 'one' || 'two' }}"
