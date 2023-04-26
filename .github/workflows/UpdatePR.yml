@@ -4,6 +4,8 @@ on: workflow_dispatch
 jobs:
   foo:
     runs-on: ubuntu-latest
+    env:
+      CDK_DIR: ${{ 'bal' }}${{ 'rpo' }}
+      TF_CMD: terraform${{ true && ' -chdir='env.CDK_DIR }}
     steps:
-      - run: echo "${{ true && 'one' || 'two' }}"
-      - run: echo "${{ false && 'one' || 'two' }}"
+      - run: echo "${{ env.TF_CMD }}"
