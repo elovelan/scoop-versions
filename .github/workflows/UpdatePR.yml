@@ -8,5 +8,5 @@ jobs:
   foo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "tfCmd=terraform${{ inputs.IAC_TOOL == 'cdktf' && format(' -chdir={0}', env.CDK_DIR) }}" >> "$GITHUB_ENV"
+      - run: echo "tfCmd=terraform${{ inputs.IAC_TOOL == 'cdktf' && format(' -chdir={0}', env.CDK_DIR) || null }}" >> "$GITHUB_ENV"
       - run: env
