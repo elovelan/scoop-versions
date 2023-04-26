@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CDK_DIR: ${{ 'bal' }}${{ 'rpo' }}
-      TF_CMD: terraform${{ true && ' -chdir='env.CDK_DIR }}
+      TF_CMD: terraform${{ true && format(' -chdir={0}', env.CDK_DIR) }}
     steps:
       - run: echo "${{ env.TF_CMD }}"
