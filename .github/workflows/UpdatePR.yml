@@ -1,11 +1,13 @@
 name: Update PR on main repo w/ latest VSCode build
 on: workflow_dispatch
 
+env:
+  CDK_DIR: ${{ 'bal' }}${{ 'rpo' }}
+
 jobs:
   foo:
     runs-on: ubuntu-latest
     env:
-      CDK_DIR: ${{ 'bal' }}${{ 'rpo' }}
       TF_CMD: terraform${{ true && format(' -chdir={0}', env.CDK_DIR) }}
     steps:
       - run: echo "${{ env.TF_CMD }}"
